@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMSC478: Intro. to Machine Learning</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .spring-break {
+            background-color: #eee;
+            text-align: center;
+            font-style: italic;
+        }
+        
+
+        .section-header {
+            background-color: #e6e6e6;
+            font-weight: bold;
+        }
+        
+        .total-row {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        .week-dates {
+            font-style: italic;
+        }
+
+        a:link {
+  color: blue;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: blue;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white-600 text-black shadow-lg">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold">UMBC CMSC 478 (Spring 2025)</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#syllabus" class="hover:text-gray-200">Course Description</a>
+                    <a href="#schedule" class="hover:text-gray-200">Course Schedule</a>
+                    <a href="#assignments" class="hover:text-gray-200">Assignments</a>
+                    <a href="#resources" class="hover:text-gray-200">Additional Class Consideration</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-white">
+        <div class="container mx-auto px-6 py-16">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Introduction to Machine Learning</h1>
+            
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8">
+                <p class="font-medium">Course Information:</p>
+                <ul class="list-disc ml-6 mt-2">
+                    <li> Discord Link for Discussions: </li>
+                    <li>Lectures: Tuesdays and Wednesdays 02:30 PM - 03:45 PM</li>
+                    <li>Location: Janet & Walter Sondheim Hall, Room 114</li>
+                    <li>Instructor: <a href="https://manasgaur.github.io/">Dr. Manas Gaur</a></li>
+                    <li>Office Hours: Tuesdays and Thursdays : 1:00 PM - 2:00 PM (Room 337 ITE Building)</li>
+                    <li>Teaching Assistant: Shaswati Saha</li>
+                    <li> TA Office Hours: ITE 344</li>
+                    <ul>
+                        <li> Tuesday: 12:30 PM - 2:00 PM </li>
+                        <li> Friday: 4:00 PM - 4:30 PM </li>
+                    </ul>
+                    <li>Grader: Dayakar Reddy Kadasani</li>
+                    <li>Attendance: 10% of the Grades (On blackboard is mandatory before the class)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Description -->
+    <div id="syllabus" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Course Description</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <p class="text-gray-600 mb-4">
+                    This course provides a broad introduction to machine learning and statistical pattern recognition. Topics include: supervised learning (generative/discriminative learning, parametric/non-parametric learning, neural networks, support vector machines); unsupervised learning (clustering, dimensionality reduction, kernel methods); learning theory (bias/variance tradeoffs, practical advice); reinforcement learning and large language models. The course will also discuss recent applications of machine learning, such as personalized conversational systems, recommender systems, virtual assistants, autonomous driving, finance, healthcare, and others. 
+                </p>
+                
+                <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Prerequisites</h3>
+                Concretely, things we expect you to know (we use these constantly, but don’t teach them explicitly). Such as intermediate Python and exposure to algorithms – ability to understand & discuss pseudo-code, and implement in Python.
+
+                <ul class="list-disc ml-6 text-gray-600">
+                    <li>Data Structures (CMSC 341)</li>
+                    <li>Introduction to Linear Algebra (MATH 221)</li>
+                    <li>Introduction to Probability and Statistics for Scientists and Engineers (STAT 355)</li>
+                    <li>Introduction to Probability Theory (STAT 451)</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Learning Objectives</h3>
+                <ul class="list-disc ml-6 text-gray-600">
+                    <li>Understand fundamental machine learning concepts and algorithms</li>
+                    <li>Implement and evaluate machine learning models using Python</li>
+                    <li>Apply machine learning techniques to real-world problems</li>
+                    <li>Develop critical thinking skills for model selection and evaluation</li>
+                </ul>
+                <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Books for the course</h3>
+                <ul class="list-disc ml-6 text-gray-600">
+                    <li><a href="https://drive.google.com/file/d/16zDNV-cSO-XY-pSGSE_XaitA89XBPz02/view">Course in Machine Learning</a></li>
+                    <li><a href="https://drive.google.com/file/d/19KQ5UGdbOo9Y7fBemW1pcLXwBSKbII3I/view">CS 229 Lecture Notes: Andrew Ng</a></li>
+                </ul>
+                <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Additional Readings</h3>
+                <ul class="list-disc ml-6 text-gray-600">
+                    <li><a href="http://www.cs.cmu.edu/~tom/files/MachineLearningTomMitchell.pdf">Machine Learning</a></li>
+                    <li><a href="https://github.com/cm-xcju/machine-learning-books/blob/master/The%20Master%20Algorithm%20-%20How%20the%20Quest%20for%20the%20Ultimate%20Learning%20Machine%20Will%20Remake%20Our%20World%202015.pdf"> Master Algorithm</a> </li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Grading Policy</h3>
+                You need to make sure your computer and programs work correctly. If your computer breaks down, your internet stops working, or your software isn't compatible, these won't be accepted as valid excuses for missing tests or not turning in assignments.
+                <ul class="list-disc ml-6 text-gray-600">
+                    <table>
+                        <tr>
+                            <th>Course Components</th>
+                            <th>Weight</th>
+                        </tr>
+                        <tr>
+                            <td>Assignments</td>
+                            <td class="weight-column">25%</td>
+                        </tr>
+                        <tr>
+                            <td>Midterm Exam</td>
+                            <td class="weight-column">30%</td>
+                        </tr>
+                        <tr>
+                            <td>Final Exam</td>
+                            <td class="weight-column">35%</td>
+                        </tr>
+                        <tr>
+                            <td>Class Attendance & Participation</td>
+                            <td class="weight-column">10%</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td class="weight-column">100%</td>
+                        </tr>
+                    </table>
+                    Your work in each part of the course will be scored from 0 to 100. At the end of the semester, we'll multiply each score by its percentage weight from the table and add them all up. This final total will determine what letter grade you get in the class.
+                </ul>
+            Class participation: Coming to class and taking part in discussions is required. You can earn your 5% participation grade by: Showing up on time, Asking questions, Answering questions during class. 
+            If too many students start skipping class, I might give surprise quizzes. If you need special attendance arrangements due to a disability, reach out to the Center for Disability and Access (CDA). They'll work with me to figure out what reasonable accommodations we can make.
+            <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Late Assignments and Regrade Requests</h3>
+            <ul>
+            Each student will have a total of six late days for use for homework assignments. Once these late days are exhausted, any assignments turned in late will be penalized 20% per late day. However, no assignment will be accepted more than six days after its due date. Each 24 hours or part thereof that a homework is late uses up one full late day. Please note that late days are applied individually. Please keep in mind that late days cannot be applied to any take home mid-term or final exam, if that happens depending upon some unprecendented situation. 
+            
+            Student will have one to submit a regrade requests by sending an email to the TA. 
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Schedule -->
+    <div id="schedule" class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Course Schedule</h2>
+            
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Topic</th>
+                    <th>Chapter from Textbook</th>
+                    <th>Assignment</th>
+                </tr>
+                <tr>
+                    <td>January 28, 2025</td>
+                    <td>Course Introduction</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>January 30, 2025</td>
+                    <td>Linear Models (Linear Regression, Linear Classification)</td>
+                    <td>Ch. 7</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>February 04, 2025</td>
+                    <td>Contd.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>February 06, 2025</td>
+                    <td>The Perceptron and Adaline machine learning models</td>
+                    <td>Ch. 4</td>
+                    <td>Assignment Linear Models</td>
+                </tr>
+                <tr>
+                    <td>February 11, 2025</td>
+                    <td>Contd.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>February 13, 2025</td>
+                    <td>Logistic Regression</td>
+                    <td>Ch.5 and Ch. 6</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>February 18, 2025</td>
+                    <td>Gradient Descent</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>February 20, 2025</td>
+                    <td>Non-Parametric Methods - Decision Trees</td>
+                    <td>Ch. 1</td>
+                    <td>Assignment Logistic Regression</td>
+                </tr>
+                <tr>
+                    <td>February 25, 2025</td>
+                    <td>K-NN</td>
+                    <td>Ch. 3</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>February 27, 2025</td>
+                    <td>Multiclass Classification, Probabilistic Classifiers</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>March 04, 2025</td>
+                    <td>Probabilistic Classifiers, Naive Bayes, Optimal Bayes Classifier</td>
+                    <td>Ch. 9</td>
+                    <td>Assignment Bayesian Classifiers</td>
+                </tr>
+                <tr>
+                    <td>March 06, 2025</td>
+                    <td>Contd.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>March 11, 2025</td>
+                    <td>Neural Networks</td>
+                    <td>Ch. 10</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>March 13, 2025</td>
+                    <td>Mid-term Exam (In Class)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="spring-break">
+                    <td colspan="4">Spring Break</td>
+                </tr>
+                <tr>
+                    <td>March 25, 2025</td>
+                    <td>Unsupervised Machine Learning - Clustering, Expectation Maximization</td>
+                    <td>Ch. 15 and Ch. 16</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>March 27, 2025</td>
+                    <td>K-Means, Agglomerative, DBScan Clustering</td>
+                    <td></td>
+                    <td>Results of Mid-term. Assignment Unsupervised Learning</td>
+                </tr>
+                <tr>
+                    <td>April 01, 2025</td>
+                    <td>A mixture of Gaussians, PCA, and SVD</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>April 03, 2025</td>
+                    <td>Contd.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>April 08, 2025</td>
+                    <td>Topic Presentation</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>April 10, 2025</td>
+                    <td>Topic Presentation</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>April 15, 2025</td>
+                    <td>SVM and Kernels</td>
+                    <td>Ch. 11</td>
+                    <td>Assignment PCA, SVD</td>
+                </tr>
+                <tr>
+                    <td>April 17, 2025</td>
+                    <td>Ensemble Methods</td>
+                    <td>Ch. 13</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>April 22, 2025</td>
+                    <td>Contd.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>April 24, 2025</td>
+                    <td>Explainable Machine Learning (LIME, SHAP)</td>
+                    <td>LINK</td>
+                    <td>Assignment SVM and Ensemble Methods</td>
+                </tr>
+                <tr>
+                    <td>April 29, 2025</td>
+                    <td>Contd.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>May 01, 2025</td>
+                    <td>Reinforcement Learning</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>May 06, 2025</td>
+                    <td>Continued</td>
+                    <td></td>
+                    <td>Assignment on Explainable Machine Learning and Intro. RL</td>
+                </tr>
+                <tr>
+                    <td>May 08, 2025</td>
+                    <td>Large Language Models</td>
+                    <td>LINK</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>May 13, 2025</td>
+                    <td>Final Exam Review</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TBD</td>
+                    <td>Final Exam (Take Home)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+                            
+        </div>
+    </div>
+
+    <!-- Assignments -->
+    <div id="assignments" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Assignments</h2>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Homework Assignments</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li>
+                            <span class="font-medium">Assignment 1:</span>
+                            
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Programming Assignments</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li>
+                            <span class="font-medium">Assignment 1:</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resources -->
+    <div id="resources" class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Additional Class Consideration</h2>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="bg-gray-50 rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Academic Misconduct</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        We strongly encourage students to form study groups. Students may discuss and work on homework problems in groups. However, each student must write down the solution independently, and without referring to written notes from the joint session. Each student must understand the solution well enough in order to reconstruct it by him/herself.
+
+It is an academic integrity violation to copy, refer to, or look at written or code solutions from a previous year, including but not limited to: official solutions from a previous year, solutions posted online, solutions you or someone else may have written up in a previous year, and solutions for related problems. In particular, you may not compare your solutions and code to other students’ or to resources you can find online. If you discuss a problem with others or use an online resource for help, you must cite this in your submission.
+
+Furthermore, it is an honor code violation to post your assignment solutions online, such as on a public git repo. We run plagiarism-detection software on your code against past solutions as well as student submissions from previous years. Additionally, you may not screen share your Overleaf doc or code to other students (including during office hours). Please take the time to familiarize yourself with <a href="https://academicconduct.umbc.edu/">UMBC Academic Integrity Policies</a>. 
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Students with Accommodations</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        The office of <a href="https://sds.umbc.edu/">Student Disability Services (SDS)</a> works to ensure that students can access and take advantage of UMBC’s educational environment, regardless of disability. From the SDS, UMBC is committed to eliminating discriminatory obstacles that may disadvantage students based on disability. Services for students with disabilities are provided for all students qualified under the Americans with Disabilities Act (ADA) of 1990, the ADAAA of 2009, and Section 504 of the Rehabilitation Act who request and are eligible for accommodations. The Office of Student Disability Services (SDS) is the UMBC department designated to coordinate accommo- dations that would allow students to have equal access and inclusion in all courses, programs, and activities at the University. If you have a documented disability and need to request academic accommodations, please refer to the <a href="mailto:disAbility@umbc.edu">SDS website</a> for registration information and to begin the process, or alternatively you may visit the SDS office in the Math/Psychology Building, Room 212. For questions or concerns, you may contact us through <a href="disAbility@umbc.edu">email</a> or phone (410) 455-2459. If you require accommodations for this class, make an appointment to meet with me to discuss your SDS-approved accommodations.    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold">Contact Information</h3>
+                    <p>Dr. Manas Gaur</p>
+                    <p>Email: manas@umbc.edu</p>
+                    <p>Office: ITE Building, Room 337</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p>Department of Computer Science and Electrical Engineering</p>
+                    <p>University of Maryland Baltimore County</p>
+                    <p>© 2025 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
